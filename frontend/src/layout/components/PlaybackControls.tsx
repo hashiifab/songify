@@ -50,7 +50,7 @@ export const PlaybackControls = () => {
 	};
 
 	return (
-		<footer className='h-20 sm:h-24 bg-zinc-900 border-t border-zinc-800 px-4'>
+		<footer className='h-20 sm:h-24 bg-gradient-to-b from-indigo-900/80 to-purple-900/80 p-4 border border-purple-800/30 shadow-lg shadow-purple-500/10 border-t border-zinc-800/50 px-4 backdrop-blur-sm'>
 			<div className='flex justify-between items-center h-full max-w-[1800px] mx-auto'>
 				{/* currently playing song */}
 				<div className='hidden sm:flex items-center gap-4 min-w-[180px] w-[30%]'>
@@ -79,7 +79,7 @@ export const PlaybackControls = () => {
 						<Button
 							size='icon'
 							variant='ghost'
-							className='hidden sm:inline-flex hover:text-white text-zinc-400'
+							className='hidden sm:inline-flex hover:text-white text-zinc-400 transition-colors duration-300'
 						>
 							<Shuffle className='h-4 w-4' />
 						</Button>
@@ -87,7 +87,7 @@ export const PlaybackControls = () => {
 						<Button
 							size='icon'
 							variant='ghost'
-							className='hover:text-white text-zinc-400'
+							className='hover:text-white text-zinc-400 transition-colors duration-300 hover:scale-105'
 							onClick={playPrevious}
 							disabled={!currentSong}
 						>
@@ -96,7 +96,7 @@ export const PlaybackControls = () => {
 
 						<Button
 							size='icon'
-							className='bg-white hover:bg-white/80 text-black rounded-full h-8 w-8'
+							className='bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-indigo-600 hover:to-purple-600 text-white rounded-full h-10 w-10 shadow-lg shadow-purple-500/50 hover:shadow-indigo-500/60 transition-all duration-300 hover:scale-105'
 							onClick={togglePlay}
 							disabled={!currentSong}
 						>
@@ -105,7 +105,7 @@ export const PlaybackControls = () => {
 						<Button
 							size='icon'
 							variant='ghost'
-							className='hover:text-white text-zinc-400'
+							className='hover:text-white text-zinc-400 transition-colors duration-300 hover:scale-105'
 							onClick={playNext}
 							disabled={!currentSong}
 						>
@@ -114,7 +114,7 @@ export const PlaybackControls = () => {
 						<Button
 							size='icon'
 							variant='ghost'
-							className='hidden sm:inline-flex hover:text-white text-zinc-400'
+							className='hidden sm:inline-flex hover:text-white text-zinc-400 transition-colors duration-300'
 						>
 							<Repeat className='h-4 w-4' />
 						</Button>
@@ -126,7 +126,7 @@ export const PlaybackControls = () => {
 							value={[currentTime]}
 							max={duration || 100}
 							step={1}
-							className='w-full hover:cursor-grab active:cursor-grabbing'
+							className='w-full hover:cursor-grab active:cursor-grabbing [&>.radix-slider-thumb]:bg-purple-600 [&>.radix-slider-thumb]:border-purple-600 [&>.radix-slider-thumb:hover]:bg-indigo-500 [&>.radix-slider-thumb:hover]:border-indigo-500 [&>.radix-slider-thumb]:transition-colors [&>.radix-slider-thumb]:duration-300 [&>.radix-slider-track]:bg-zinc-700 [&>.radix-slider-range]:bg-gradient-to-r [&>.radix-slider-range]:from-purple-600 [&>.radix-slider-range]:to-indigo-600'
 							onValueChange={handleSeek}
 						/>
 						<div className='text-xs text-zinc-400'>{formatTime(duration)}</div>
@@ -134,18 +134,18 @@ export const PlaybackControls = () => {
 				</div>
 				{/* volume controls */}
 				<div className='hidden sm:flex items-center gap-4 min-w-[180px] w-[30%] justify-end'>
-					<Button size='icon' variant='ghost' className='hover:text-white text-zinc-400'>
+					<Button size='icon' variant='ghost' className='hover:text-white text-zinc-400 transition-colors duration-300 hover:scale-105'>
 						<Mic2 className='h-4 w-4' />
 					</Button>
-					<Button size='icon' variant='ghost' className='hover:text-white text-zinc-400'>
+					<Button size='icon' variant='ghost' className='hover:text-white text-zinc-400 transition-colors duration-300 hover:scale-105'>
 						<ListMusic className='h-4 w-4' />
 					</Button>
-					<Button size='icon' variant='ghost' className='hover:text-white text-zinc-400'>
+					<Button size='icon' variant='ghost' className='hover:text-white text-zinc-400 transition-colors duration-300 hover:scale-105'>
 						<Laptop2 className='h-4 w-4' />
 					</Button>
 
 					<div className='flex items-center gap-2'>
-						<Button size='icon' variant='ghost' className='hover:text-white text-zinc-400'>
+						<Button size='icon' variant='ghost' className='hover:text-white text-zinc-400 transition-colors duration-300 hover:scale-105'>
 							<Volume1 className='h-4 w-4' />
 						</Button>
 
@@ -153,7 +153,7 @@ export const PlaybackControls = () => {
 							value={[volume]}
 							max={100}
 							step={1}
-							className='w-24 hover:cursor-grab active:cursor-grabbing'
+							className='w-24 hover:cursor-grab active:cursor-grabbing [&>.radix-slider-thumb]:bg-purple-600 [&>.radix-slider-thumb]:border-purple-600 [&>.radix-slider-thumb:hover]:bg-indigo-500 [&>.radix-slider-thumb:hover]:border-indigo-500 [&>.radix-slider-thumb]:transition-colors [&>.radix-slider-thumb]:duration-300 [&>.radix-slider-track]:bg-zinc-700 [&>.radix-slider-range]:bg-gradient-to-r [&>.radix-slider-range]:from-purple-600 [&>.radix-slider-range]:to-indigo-600'
 							onValueChange={(value) => {
 								setVolume(value[0]);
 								if (audioRef.current) {

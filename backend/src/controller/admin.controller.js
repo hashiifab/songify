@@ -1,6 +1,7 @@
 import { Song } from "../models/song.model.js";
 import { Album } from "../models/album.model.js";
 import cloudinary from "../lib/cloudinary.js";
+import * as mm from 'music-metadata';
 
 // helper function for cloudinary uploads
 const uploadToCloudinary = async (file) => {
@@ -15,16 +16,31 @@ const uploadToCloudinary = async (file) => {
 	}
 };
 
+// helper function to get audio duration
+const getAudioDuration = async (file) => {
+	try {
+		const metadata = await mm.parseFile(file.tempFilePath);
+		// Duration is in seconds
+		return Math.round(metadata.format.duration);
+	} catch (error) {
+		console.log("Error getting audio duration", error);
+		throw new Error("Error getting audio duration");
+	}
+};
+
 export const createSong = async (req, res, next) => {
 	try {
 		if (!req.files || !req.files.audioFile || !req.files.imageFile) {
 			return res.status(400).json({ message: "Please upload all files" });
 		}
 
-		const { title, artist, albumId, duration } = req.body;
+		const { title, artist, albumId } = req.body;
 		const audioFile = req.files.audioFile;
 		const imageFile = req.files.imageFile;
 
+		// Get audio duration automatically
+		const duration = await getAudioDuration(audioFile);
+		
 		const audioUrl = await uploadToCloudinary(audioFile);
 		const imageUrl = await uploadToCloudinary(imageFile);
 
@@ -110,5 +126,7 @@ export const deleteAlbum = async (req, res, next) => {
 };
 
 export const checkAdmin = async (req, res, next) => {
+	// Sesuai permintaan untuk membuat semua user menjadi admin (open source music)
+	// Selalu kembalikan status admin true untuk semua pengguna
 	res.status(200).json({ admin: true });
 };

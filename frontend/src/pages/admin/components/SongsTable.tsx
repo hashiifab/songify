@@ -23,9 +23,10 @@ const SongsTable = () => {
 	}
 
 	return (
+		<div className='rounded-lg bg-gradient-to-b from-indigo-900/80 to-purple-900/80 p-4 border border-purple-800/30 shadow-lg shadow-purple-500/10'>
 		<Table>
 			<TableHeader>
-				<TableRow className='hover:bg-zinc-800/50'>
+				<TableRow className='hover:bg-indigo-800/50'>
 					<TableHead className='w-[50px]'></TableHead>
 					<TableHead>Title</TableHead>
 					<TableHead>Artist</TableHead>
@@ -36,12 +37,12 @@ const SongsTable = () => {
 
 			<TableBody>
 				{songs.map((song) => (
-					<TableRow key={song._id} className='hover:bg-zinc-800/50'>
+					<TableRow key={song._id} className='hover:bg-indigo-800/50'>
 						<TableCell>
 							<img src={song.imageUrl} alt={song.title} className='size-10 rounded object-cover' />
 						</TableCell>
-						<TableCell className='font-medium'>{song.title}</TableCell>
-						<TableCell>{song.artist}</TableCell>
+						<TableCell className='font-medium text-blue-100 drop-shadow-[0_0_3px_rgba(168,85,247,0.3)]'>{song.title}</TableCell>
+						<TableCell className='text-blue-100'>{song.artist}</TableCell>
 						<TableCell>
 							<span className='inline-flex items-center gap-1 text-zinc-400'>
 								<Calendar className='h-4 w-4' />
@@ -54,7 +55,7 @@ const SongsTable = () => {
 								<Button
 									variant={"ghost"}
 									size={"sm"}
-									className='text-red-400 hover:text-red-300 hover:bg-red-400/10'
+									className='text-purple-300 hover:text-purple-200 hover:bg-purple-500/20'
 									onClick={() => deleteSong(song._id)}
 								>
 									<Trash2 className='size-4' />
@@ -65,6 +66,7 @@ const SongsTable = () => {
 				))}
 			</TableBody>
 		</Table>
+		</div>
 	);
 };
 export default SongsTable;

@@ -23,20 +23,20 @@ const AdminPage = () => {
 
 	return (
 		<div
-			className='min-h-screen bg-gradient-to-b from-zinc-900 via-zinc-900
-   to-black text-zinc-100 p-8'
+			className='min-h-screen bg-gradient-to-b from-indigo-950 via-purple-950
+   to-black text-blue-100 p-8'
 		>
 			<Header />
 
 			<DashboardStats />
 
 			<Tabs defaultValue='songs' className='space-y-6'>
-				<TabsList className='p-1 bg-zinc-800/50'>
-					<TabsTrigger value='songs' className='data-[state=active]:bg-zinc-700'>
+				<TabsList className='p-1 bg-gradient-to-b from-indigo-900/80 to-purple-900/80 border border-purple-800/30 shadow-lg shadow-purple-500/10'>
+					<TabsTrigger value='songs' className='data-[state=active]:bg-indigo-800/70 text-blue-100 drop-shadow-[0_0_3px_rgba(168,85,247,0.3)]'>
 						<Music className='mr-2 size-4' />
 						Songs
 					</TabsTrigger>
-					<TabsTrigger value='albums' className='data-[state=active]:bg-zinc-700'>
+					<TabsTrigger value='albums' className='data-[state=active]:bg-indigo-800/70 text-blue-100 drop-shadow-[0_0_3px_rgba(168,85,247,0.3)]'>
 						<Album className='mr-2 size-4' />
 						Albums
 					</TabsTrigger>

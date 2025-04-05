@@ -14,8 +14,8 @@ const FeaturedSection = () => {
 			{featuredSongs.map((song) => (
 				<div
 					key={song._id}
-					className='flex items-center bg-zinc-800/50 rounded-md overflow-hidden
-         hover:bg-zinc-700/50 transition-colors group cursor-pointer relative'
+					className='flex items-center bg-indigo-900/50 rounded-md overflow-hidden
+         hover:bg-purple-800/50 transition-all duration-200 group cursor-pointer relative shadow-md shadow-purple-500/10'
 				>
 					<img
 						src={song.imageUrl}
@@ -23,8 +23,8 @@ const FeaturedSection = () => {
 						className='w-16 sm:w-20 h-16 sm:h-20 object-cover flex-shrink-0'
 					/>
 					<div className='flex-1 p-4'>
-						<p className='font-medium truncate'>{song.title}</p>
-						<p className='text-sm text-zinc-400 truncate'>{song.artist}</p>
+						<p className='font-medium truncate text-blue-100'>{song.title}</p>
+						<p className='text-sm text-purple-300/80 truncate'>{song.artist}</p>
 					</div>
 					<PlayButton song={song} />
 				</div>

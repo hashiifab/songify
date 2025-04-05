@@ -77,7 +77,7 @@ const AddAlbumDialog = () => {
 					Add Album
 				</Button>
 			</DialogTrigger>
-			<DialogContent className='bg-zinc-900 border-zinc-700'>
+			<DialogContent className='bg-gradient-to-b from-indigo-900/80 to-purple-900/80 p-4 border border-purple-800/30 shadow-lg shadow-purple-500/10'>
 				<DialogHeader>
 					<DialogTitle>Add New Album</DialogTitle>
 					<DialogDescription>Add a new album to your collection</DialogDescription>
@@ -91,46 +91,46 @@ const AddAlbumDialog = () => {
 						className='hidden'
 					/>
 					<div
-						className='flex items-center justify-center p-6 border-2 border-dashed border-zinc-700 rounded-lg cursor-pointer'
+						className='flex items-center justify-center p-6 border-2 border-dashed border-purple-600/50 rounded-lg cursor-pointer bg-indigo-800/20'
 						onClick={() => fileInputRef.current?.click()}
 					>
 						<div className='text-center'>
-							<div className='p-3 bg-zinc-800 rounded-full inline-block mb-2'>
-								<Upload className='h-6 w-6 text-zinc-400' />
+							<div className='p-3 bg-indigo-800/50 rounded-full inline-block mb-2 border border-purple-500/30'>
+								<Upload className='h-6 w-6 text-purple-300' />
 							</div>
-							<div className='text-sm text-zinc-400 mb-2'>
+							<div className='text-sm text-blue-100 mb-2'>
 								{imageFile ? imageFile.name : "Upload album artwork"}
 							</div>
-							<Button variant='outline' size='sm' className='text-xs'>
+							<Button variant='outline' size='sm' className='text-xs bg-indigo-800/30 border-purple-600/50 text-blue-100 hover:bg-indigo-700/50'>
 								Choose File
 							</Button>
 						</div>
 					</div>
 					<div className='space-y-2'>
-						<label className='text-sm font-medium'>Album Title</label>
+						<label className='text-sm font-medium text-blue-100'>Album Title</label>
 						<Input
 							value={newAlbum.title}
 							onChange={(e) => setNewAlbum({ ...newAlbum, title: e.target.value })}
-							className='bg-zinc-800 border-zinc-700'
+							className='bg-indigo-800/40 border-purple-600/50 text-blue-100 focus-visible:ring-purple-500'
 							placeholder='Enter album title'
 						/>
 					</div>
 					<div className='space-y-2'>
-						<label className='text-sm font-medium'>Artist</label>
+						<label className='text-sm font-medium text-blue-100'>Artist</label>
 						<Input
 							value={newAlbum.artist}
 							onChange={(e) => setNewAlbum({ ...newAlbum, artist: e.target.value })}
-							className='bg-zinc-800 border-zinc-700'
+							className='bg-indigo-800/40 border-purple-600/50 text-blue-100 focus-visible:ring-purple-500'
 							placeholder='Enter artist name'
 						/>
 					</div>
 					<div className='space-y-2'>
-						<label className='text-sm font-medium'>Release Year</label>
+						<label className='text-sm font-medium text-blue-100'>Release Year</label>
 						<Input
 							type='number'
 							value={newAlbum.releaseYear}
 							onChange={(e) => setNewAlbum({ ...newAlbum, releaseYear: parseInt(e.target.value) })}
-							className='bg-zinc-800 border-zinc-700'
+							className='bg-indigo-800/40 border-purple-600/50 text-blue-100 focus-visible:ring-purple-500'
 							placeholder='Enter release year'
 							min={1900}
 							max={new Date().getFullYear()}
@@ -138,12 +138,12 @@ const AddAlbumDialog = () => {
 					</div>
 				</div>
 				<DialogFooter>
-					<Button variant='outline' onClick={() => setAlbumDialogOpen(false)} disabled={isLoading}>
+					<Button variant='outline' onClick={() => setAlbumDialogOpen(false)} disabled={isLoading} className='bg-indigo-800/30 border-purple-600/50 text-blue-100 hover:bg-indigo-700/50'>
 						Cancel
 					</Button>
 					<Button
 						onClick={handleSubmit}
-						className='bg-violet-500 hover:bg-violet-600'
+						className='bg-purple-600 hover:bg-purple-700 text-white'
 						disabled={isLoading || !imageFile || !newAlbum.title || !newAlbum.artist}
 					>
 						{isLoading ? "Creating..." : "Add Album"}

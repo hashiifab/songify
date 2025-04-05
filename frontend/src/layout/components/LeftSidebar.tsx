@@ -21,15 +21,16 @@ const LeftSidebar = () => {
 		<div className='h-full flex flex-col gap-2'>
 			{/* Navigation menu */}
 
-			<div className='rounded-lg bg-zinc-900 p-4'>
+			<div className='rounded-lg bg-gradient-to-b from-indigo-900/80 to-purple-900/80 p-4 border border-purple-800/30 shadow-lg shadow-purple-500/10'>
 				<div className='space-y-2'>
 					<Link
 						to={"/"}
 						className={cn(
 							buttonVariants({
 								variant: "ghost",
-								className: "w-full justify-start text-white hover:bg-zinc-800",
-							})
+								className: "w-full justify-start text-white hover:bg-indigo-800/50",
+							}),
+							"text-blue-100 drop-shadow-[0_0_3px_rgba(168,85,247,0.3)]"
 						)}
 					>
 						<HomeIcon className='mr-2 size-5' />
@@ -42,8 +43,9 @@ const LeftSidebar = () => {
 							className={cn(
 								buttonVariants({
 									variant: "ghost",
-									className: "w-full justify-start text-white hover:bg-zinc-800",
-								})
+									className: "w-full justify-start text-white hover:bg-indigo-800/50",
+								}),
+								"text-blue-100 drop-shadow-[0_0_3px_rgba(168,85,247,0.3)]"
 							)}
 						>
 							<MessageCircle className='mr-2 size-5' />
@@ -54,11 +56,11 @@ const LeftSidebar = () => {
 			</div>
 
 			{/* Library section */}
-			<div className='flex-1 rounded-lg bg-zinc-900 p-4'>
+			<div className='flex-1 rounded-lg bg-gradient-to-b from-indigo-900/80 to-purple-900/80 p-4 border border-purple-800/30 shadow-lg shadow-purple-500/10'>
 				<div className='flex items-center justify-between mb-4'>
-					<div className='flex items-center text-white px-2'>
+					<div className='flex items-center text-blue-100 px-2 drop-shadow-[0_0_3px_rgba(168,85,247,0.3)]'>
 						<Library className='size-5 mr-2' />
-						<span className='hidden md:inline'>Playlists</span>
+						<span className='hidden md:inline font-medium'>Playlists</span>
 					</div>
 				</div>
 
@@ -71,7 +73,7 @@ const LeftSidebar = () => {
 								<Link
 									to={`/albums/${album._id}`}
 									key={album._id}
-									className='p-2 hover:bg-zinc-800 rounded-md flex items-center gap-3 group cursor-pointer'
+									className='p-2 hover:bg-indigo-800/50 rounded-md flex items-center gap-3 group cursor-pointer transition-all duration-200'
 								>
 									<img
 										src={album.imageUrl}
